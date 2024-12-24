@@ -6,11 +6,7 @@ userSchema = mongoose.Schema({
         required: [true, 'Username is required'],
         trim: true, // To remove any surrounding white spaces
       },
-      lastename: {
-        type: String,
-        required: [true, 'Username is required'],
-        trim: true, // To remove any surrounding white spaces
-      },
+     
       email: {
         type: String,
         required: [true, 'Email is required'],

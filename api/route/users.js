@@ -16,7 +16,6 @@ router.post('/signup', (req, res, next) => {
             const user = new User({
                 _id: new mongoose.Types.ObjectId(),
                 Name: req.body.Name,
-                lastename:req.body.lastename,
                 email: req.body.email,
                 password: hash,
                
@@ -57,7 +56,6 @@ router.post('/login', (req, res, next) => {
                     console.log(req.body.password);
                     const token = jwt.sign({
                         Name: user[0].Name,
-                        lastename:user[0].lastename,
                         email: user[0].email,
                     
                     }, "do you know", {
@@ -65,7 +63,6 @@ router.post('/login', (req, res, next) => {
                     });
                     res.status(200).json({
                         Name: user[0].Name,
-                        lastename:user[0].lastename,
                         email: user[0].email,
                         _id:user[0]._id,
                         token: token
@@ -124,7 +121,6 @@ router.put('/:id', (req, res, next) => {
             $set: {
               Name: req.body.Name,
               email: req.body.email,
-              lastename: req.body.lastename,
               password: hash
             }
           },
